@@ -63,12 +63,14 @@
     transform: scale(1.1);
   }
 
- &--play {
+&--play {
   background: transparent;
 
   svg {
+    width: 16px;
+    height: 16px;
     display: block;
-    overflow: visible;
+
   }
 
   polygon {
@@ -76,6 +78,7 @@
     stroke: #c4b6e0;
     stroke-width: 2;
     stroke-linejoin: round;
+    stroke-linecap: round;
   }
 
   &:hover polygon {
