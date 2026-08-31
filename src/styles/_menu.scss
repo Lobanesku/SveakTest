@@ -50,36 +50,58 @@
     margin-left: auto;
   }
 
-  &__btn {
-    width: 16px;
-    height: 16px;
-    padding: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+ &__btn {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+ &--play {
+  background: transparent;
+
+  svg {
+    display: block;
+    overflow: visible;
+  }
+
+  polygon {
+    fill: #c4b6e0;
+    stroke: #c4b6e0;
+    stroke-width: 2;
+    stroke-linejoin: round;
+  }
+
+  &:hover polygon {
+    fill: #d946ef;
+    stroke: #d946ef;
+  }
+}
+
+  &--circle {
+    background-color: #c4b6e0;
+    border-radius: 50%;
 
     &:hover {
       background-color: #d946ef;
-      transform: scale(1.1);
-    }
-
-    &--play {
-      background-color: #c4b6e0;
-      clip-path: polygon(0 0, 0 100%, 100% 50%);
-      border-radius: 2px;
-    }
-
-    &--circle {
-      background-color: #c4b6e0;
-      border-radius: 50%;
-    }
-
-    &--square {
-      background-color: #c4b6e0;
-      border-radius: 3px;
     }
   }
+
+  &--square {
+    background-color: #c4b6e0;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: #d946ef;
+    }
+  }
+}
 }
 
 .burger {
