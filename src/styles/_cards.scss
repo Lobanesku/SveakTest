@@ -1,0 +1,111 @@
+@use 'variables' as *;
+
+.cards-grid {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(2, minmax(115px, 150px));
+  justify-content: center;
+  align-content: start;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: stretch;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+
+@media (max-width: 639px) {
+  .card {
+    &:nth-child(2n + 1):nth-last-child(1) {
+      display: none;
+    }
+  }
+}
+
+.card {
+  height: 180px; 
+  background-color: $bg-card;
+  border-radius: $radius;
+  padding: 20px; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  &__title {
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: $text-muted;
+
+
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word; 
+  }
+}
+
+
+
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .card {
+    &:nth-child(3n + 1):nth-last-child(1),
+    &:nth-child(3n + 1):nth-last-child(2),
+    &:nth-child(3n + 1):nth-last-child(2) ~ .card {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .card {
+    &:nth-child(4n + 1):nth-last-child(-n + 3),
+    &:nth-child(4n + 1):nth-last-child(-n + 3) ~ .card,
+    &:nth-child(4n + 2):nth-last-child(-n + 2),
+    &:nth-child(4n + 2):nth-last-child(-n + 2) ~ .card,
+    &:nth-child(4n + 3):nth-last-child(1) {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    &:nth-child(5n + 1):nth-last-child(-n + 4),
+    &:nth-child(5n + 1):nth-last-child(-n + 4) ~ .card,
+    &:nth-child(5n + 2):nth-last-child(-n + 3),
+    &:nth-child(5n + 2):nth-last-child(-n + 3) ~ .card,
+    &:nth-child(5n + 3):nth-last-child(-n + 2),
+    &:nth-child(5n + 3):nth-last-child(-n + 2) ~ .card,
+    &:nth-child(5n + 4):nth-last-child(1) {
+      display: none;
+    }
+  }
+}
